@@ -424,7 +424,7 @@ case ${KINDLE_TC} in
 		case ${KINDLE_TC} in
 			KOBO )
 				CROSS_TC="arm-kobo-linux-gnueabihf"
-				TC_BUILD_DIR="${SCRIPTS_BASE_DIR}/build/kobo/.build/${CROSS_TC}/buildtools"
+				TC_BUILD_DIR="${SCRIPTS_BASE_DIR}/../build/kobo/.build/${CROSS_TC}/buildtools"
 			;;
 			NICKEL )
 				CROSS_TC="arm-nickel-linux-gnueabihf"
