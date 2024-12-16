@@ -424,7 +424,7 @@ case ${KINDLE_TC} in
 		case ${KINDLE_TC} in
 			KOBO )
 				CROSS_TC="arm-kobo-linux-gnueabihf"
-				TC_BUILD_DIR="${HOME}/Kindle/CrossTool/Build_${KINDLE_TC}"
+				TC_BUILD_DIR="${SCRIPTS_BASE_DIR}/build/kobo/.build/${CROSS_TC}/buildtools"
 			;;
 			NICKEL )
 				CROSS_TC="arm-nickel-linux-gnueabihf"
@@ -482,6 +482,8 @@ case ${KINDLE_TC} in
 		## NOTE: See https://gcc.gnu.org/gcc-4.9/changes.html for the notes about building LTO-enabled static libraries... (gcc-ar/gcc-ranlib)
 		## NOTE: And see https://gcc.gnu.org/gcc-5/changes.html to rejoice because we don't have to care about broken build-systems with mismatched compile/link time flags anymore :).
 		export AR="${CROSS_TC}-gcc-ar"
+		export CC="${CROSS_TC}-gcc"
+		export CXX="${CROSS_TC}-g++"
 		export RANLIB="${CROSS_TC}-gcc-ranlib"
 		export NM="${CROSS_TC}-gcc-nm"
 		## NOTE: Also, BOLO for packages thant link with $(CC) $(LDFLAGS) (ie. without CFLAGS). This is BAD. One (dirty) workaround if you can't fix the package is to append CFLAGS to the end of LDFLAGS... :/
